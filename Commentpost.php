@@ -18,6 +18,8 @@ class Commentpost
 
         //文字コードを設定
         mysqli_set_charset($this->link, "utf8mb4");
+
+        $this->userid = $_COOKIE["userid"];
     }
 
     //create で実行される 部分
@@ -25,16 +27,17 @@ class Commentpost
     {
         $stmt = mysqli_prepare(
             $this->link,
-            "INSERT INTO data (username, comment, date)" .
-                " VALUES (?, ?, ?);"
+            "INSERT INTO data (username, comment, date, userid)" .
+                " VALUES (?, ?, ?, ?);"
         );
 
         mysqli_stmt_bind_param(
             $stmt,
-            "sss",
+            "ssss",
             $this->username,
             $this->comment,
-            $this->date
+            $this->date,
+            $this->userid
         );
 
         mysqli_stmt_execute($stmt);
@@ -81,7 +84,6 @@ class View
             echo "<td>" . htmlspecialchars(($row["username"])) . "&nbsp;さん</td>";
             echo "<td>" . htmlspecialchars(($row["comment"])) . "</td>";
             echo "<td>" . htmlspecialchars(($row["date"])) . "</td>";
-            echo "<td>" . htmlspecialchars(($row["userid"])) . "</td>";
             echo "</tr>";
         }
 

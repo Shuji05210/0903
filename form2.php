@@ -13,20 +13,25 @@
 <body>
     <div class="width">
         <div class="fonts">
-            
-        <!-- PHPここから -->
+
+            <!-- PHPここから -->
             <?php
             ini_set('display_errors', "On");  //エラーの表示用(必須)
 
             // Cookieの処理
-            if(!isset($_POST["userid"]) && ($_POST["pass"])){
+            if (!isset($_POST["userid"])) {
                 //入力されていないなら クッキー情報を削除
-                setcookie("userid", "pass", time() -3600);
+                setcookie("userid", "", time() - 3600);
             } else {
                 //選択されているならクッキーに値をセットする
                 $userid =  $_POST["userid"];
-                $pass   =  $_POST["pass"];
                 setcookie("userid", $userid);
+            }
+
+            if (!isset($POST["pass"])) {
+                setcookie("pass","", time() - 3600);
+            } else {
+                $userpass = $_POST["pass"];
                 setcookie("pass", $pass);
             }
 
@@ -35,10 +40,10 @@
             // $_SESSION["userid"] = $userid ;
             // $_SESSION["pass"] = $pass;
 
-            
+
 
             //ユーザーID = "test" 且つ パスワード = "pass" なら ログイン成功
-            if ($_COOKIE["userid"] == "test" && $_COOKIE["pass"] == "pass") {
+            if (($_POST["userid"] == "test") && ($_POST["pass"] == "pass")) {
                 echo "<p>ログインに成功しました<p>";
             }
 
@@ -49,7 +54,7 @@
             }
 
             ?>
-        <!-- PHPここまで -->
+            <!-- PHPここまで -->
         </div>
 
         <div class="space"></div>
