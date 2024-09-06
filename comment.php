@@ -24,11 +24,9 @@
                     <th>コメント</th>
                     <td><input type="text" name="comment" class="inpt"></input></td>
                 </tr>
-                
                 </tr>
         </table>
         
-
         <input type="submit" value="投稿">
         </form>
     

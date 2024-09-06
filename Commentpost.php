@@ -2,11 +2,13 @@
 ini_set('display_errors', "On"); //エラー表示用
 
 class Commentpost
-{
+{   
     public $username;
     public $comment;
     public $date;
     public $link;
+
+    public $userid;
 
     // コンストラクター
     public function __construct()
@@ -79,6 +81,7 @@ class View
             echo "<td>" . htmlspecialchars(($row["username"])) . "&nbsp;さん</td>";
             echo "<td>" . htmlspecialchars(($row["comment"])) . "</td>";
             echo "<td>" . htmlspecialchars(($row["date"])) . "</td>";
+            echo "<td>" . htmlspecialchars(($row["userid"])) . "</td>";
             echo "</tr>";
         }
 

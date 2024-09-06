@@ -31,9 +31,9 @@
             }
 
             //セッションIDに値をセットする
-            session_start();
-            $_SESSION["userid"] = $userid ;
-            $_SESSION["pass"] = $pass;
+            // session_start();
+            // $_SESSION["userid"] = $userid ;
+            // $_SESSION["pass"] = $pass;
 
             
 

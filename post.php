@@ -27,8 +27,6 @@
         $commentpost->username = $_POST['username'];
         $commentpost->comment  = $_POST['comment'];
 
-
-
         //セッションの開始とセッションからIDを取得
         
         
@@ -37,6 +35,7 @@
 
         //データの追加の実行
         $commentpost->create();
+        
 
         echo "コメントを投稿しました";
 
